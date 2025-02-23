@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <section style="text-align:center;">
+    {% if tasks %}
+      <ul class="list-group">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">Descrição</th>
+              <th scope="col">Data Criada</th>
+              <th scope="col">Data Limite</th>
+              <th scope="col">Status</th>
+              <td></td>
+
+
+            </tr>
+          </thead>
+          <tbody>
+            {% for task in tasks %}
+              <tr>
+                <td>{{ task.nome }}</td>
+                <td>{{ task.descricao }}</td>
+                <td>{{ task.created_date }}</td>
+                <td>{{ task.data_limite }}</td>
+                <td>{% if task.status %}Feita{% else %}Não Feita{% endif %}</td>
+                <td>
+                  <form action="{% url 'edit_task' task.id %}" method="GET" style="display: inline-block;">
+                    <button style="font-size:13px; height:32px;" type="submit" class="btn btn-success">Edit</button>
+                  </form>
+
+                  <form action="{% url 'delete_task' task.id %}" method="POST" onsubmit="return confirm('Tem certeza que quer deletar?')" style="display: inline-block;">
+                    {% csrf_token %}
+                    <button style="font-size:13px; height:32px;" type="submit" class="btn btn-dark">Delete</button>
+                  </form>
+                </td>
+              </tr>
+            {% empty %}
+              <tr><td colspan="6" style="text-align:center;">Nenhum item na lista</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </ul>
+    {% else %}
+      <div style="text-align:center;margin-top:70px;">
+        <p style="font-size:20px;">Nenhum item encontrado</p>
+        <a href="{% url 'add' %}"><button type="button" class="btn btn-primary">Adicionar</button></a>
+      </div>
+    {% endif %}
+  </section>
+{% endblock %}
