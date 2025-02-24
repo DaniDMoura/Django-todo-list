@@ -37,4 +37,14 @@ A web-based To-Do List application built with **Django**. This website allows yo
    python manage.py runserver
    ```
 
+   Once started, you can access the website at `http://localhost:8000`
+
+## Deployment
+
+The website is available on Railway at: https://django-todo-list-production.up.railway.app/
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 
