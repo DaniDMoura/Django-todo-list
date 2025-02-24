@@ -27,6 +27,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['django-todo-list-production.up.railway.app']
 
+CSRF_TRUSTED_ORIGINS = ['https://django-todo-list-production.up.railway.app']
+
 
 # Application definition
 
