@@ -27,6 +27,7 @@
                 <td>{% if task.status %}Feita{% else %}Não Feita{% endif %}</td>
                 <td>
                   <form action="{% url 'edit_task' task.id %}" method="GET" style="display: inline-block;">
+                    {% csrf_token %}
                     <button style="font-size:13px; height:32px;" type="submit" class="btn btn-success">Edit</button>
                   </form>
 

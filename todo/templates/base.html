@@ -25,6 +25,7 @@
     </nav>
   </header>
   <main>
+    {% csrf_token %}
     {% block content %}{% endblock %}
   </main>
 </body>
