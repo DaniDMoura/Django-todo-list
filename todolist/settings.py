@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-&uvphi_*qoa79%m6iyh0hhmlt=26wdze*$fpb2r$s4@z3@_79m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['django-todo-list-production.up.railway.app']
 
 
 # Application definition
